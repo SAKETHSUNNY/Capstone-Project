@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+  margin: 0px;
+  font-family: "Montserrat", "sans-serif";
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body{
+  display: flex;
+}
+
+.left-menu{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 0px 10px rgb(200, 200, 200);
+  box-sizing: border-box;
+  padding: 0px 18px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  transition: all 0.5s ease-out;
+}
+
+.top-menu{
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0px;
+}
+
+.Logo{
+  margin-right: 35px;
+  padding-top: 12px;
+  padding-bottom: 8px;
+}
+
+.Logo a{
+  font-size: 32px;
+  color: black;
+  
+}
+
+.Logo span{
+  color: goldenrod;
+  font-size: 48px;
+}
+
+.option1{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 10px 10px;
+  gap: 10px;
+  margin: 2px;
+}
+
+a{
+  color: rgb(150, 150, 150);
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.option1 i, .option2 i{
+  color: rgb(150, 150, 150);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#Insurance{
+  background-color: goldenrod;
+  border-radius: 8px;  
+  width: 185px;
+}
+
+#Insurance a, #Insurance i{
+  color: black;
+  font-weight: bold;
+}
+
+.option1:hover{
+  background-color: goldenrod;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.option1:hover i, .option1:hover a{
+  color: black;
+}
+
+.bottom-menu{
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0px;
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+}
+
+.option2{
+  display: flex;
+  align-items: center;
+  padding: 10px 10px;
+  gap: 10px;
+  margin: 2px;
+}
+
+          /* Dashboard */
+
+.main{
+  display: flex;
+  flex: 8;
+  flex-direction: column;
+}
+

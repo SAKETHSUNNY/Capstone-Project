@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinsaV</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="Dashborad.css">
+  <script>
+    const CheckAuth = () => {
+      const Auth = JSON.parse(localStorage.getItem("FIN_LOG_TK"));
+      if (!Auth) {
+        document.location.href = "/login.html";
+      }
+    }
+    CheckAuth();
+
+    const Logout = () => {
+      localStorage.removeItem("FIN_LOG_TK");
+      window.location.href = "/login.html";
+    }
+
+  </script>
+</head>
+
+<body>
+  <div class="left-menu">
+    <div class="Logo">
+      <a href="Dashboard.html"><span>F</span>insa<span>V</span></a>
+    </div>
+
+    <div class="top-menu">
+      <div class="option1" id="dashboard">
+        <i class='bx bxs-dashboard'></i>
+        <a href="Dashboard.html">Dashboard</a>
+      </div>
+      <div class="option1">
+        <i class='bx bxs-credit-card'></i>
+        <a href="Cards.html">Cards</a>
+      </div>
+      <div class="option1">
+        <i class='bx bx-transfer'></i>
+        <a href="Transaction.html">Transactions</a>
+      </div>
+      <div class="option1">
+        <i class='bx bxs-notification'></i>
+        <a href="Investment.html">Investments</a>
+      </div>
+      <div class="option1">
+        <i class='bx bxs-check-shield'></i>
+        <a href="Insurance.html">Insurance</a>
+      </div>
+      <div class="option1">
+        <i class='bx bxs-cog'></i>
+        <a href="Setting.html">settings</a>
+      </div>
+    </div>
+
+    <div class="bottom-menu">
+      <div class="option2">
+        <i class='bx bx-question-mark'></i>
+        <a href="#">Help</a>
+      </div>
+      <div class="option2" onclick="Logout()">
+        <i class='bx bx-log-out'></i>
+        <a id="logout">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <!---- Dashboard ---->
+
+  <div class="main">
+    <div class="top-main">
+      <div class="dash">
+        <h2>Dashboard</h2>
+      </div>
+      <div class="top-icons">
+        <div class="icon">
+          <div class="icon1" id="search">
+            <i class='bx bx-search'></i>
+          </div>
+          <div class="icon1">
+            <i class='bx bxs-bell'></i>
+          </div>
+        </div>
+        <div class="profile">
+          <div class="img">
+            <img src="assets/profile.jpg">
+          </div>
+          <a href="#">Monkey D. Luffy</a>
+          <div class="down">
+            <i class='bx bxs-chevron-down'></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="second-main">
+      <div class="sec-main">
+        <div class="seco-main">
+          <div class="balance">
+            <div class="total-bal" id="total-bal1">
+              <i class='bx bxs-wallet'></i>
+              <div class="amount" id="amount1">
+                <a href="#">Total balance</a>
+                <h4>₹5,25,347.57</h4>
+              </div>
+            </div>
+            <div class="total-bal">
+              <i id="wallet1" class='bx bxs-wallet'></i>
+              <div class="amount">
+                <a href="#">Total spending</a>
+                <h4>₹20,526.39</h4>
+              </div>
+            </div>
+            <div class="total-bal">
+              <i id="wallet1" class='bx bxs-wallet'></i>
+              <div class="amount">
+                <a href="#">Total saved</a>
+                <h4>₹37,639.38</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="Statistics">
+            <div class="top-stat">
+              <div class="stats">
+                <h5>Statistics</h5>
+              </div>
+              <div class="right-stat">
+                <div class="one">
+                  <div class="color"></div>
+                  <p>Earnings</p>
+                </div>
+                <div class="one">
+                  <div class="color" id="color"></div>
+                  <p>Spendings</p>
+                </div>
+                <div class="year">
+                  <p>Year</p>
+                  <i class='bx bxs-chevron-down'></i>
+                </div>
+              </div>
+            </div>
+            <div class="graph">
+              <div class="amount">
+                <p>1,00,000</p>
+                <p>80,000</p>
+                <p>60,000</p>
+                <p>40,000</p>
+                <p>20,000</p>
+                <p>0</p>
+              </div>
+
+              <div class="months">
+                <div class="janu">
+                  <div class="es">
+                    <div class="earn" id="jan-earn"></div>
+                    <div class="spen" id="jan-spen"></div>
+                  </div>
+                  <div class="jan">
+                    <p>Jan</p>
+                  </div>
+                </div>
+                <div class="janu">
+                  <div class="es">
+                    <div class="earn" id="frb-earn"></div>
+                    <div class="spen" id="frb-spen"></div>
+                  </div>
+                  <div class="jan">
+                    <p>Feb</p>
+                  </div>
+                </div>
+                <div class="janu">
+                  <div class="es">
+                    <div class="earn" id="mar-earn"></div>
+                    <div class="spen" id="mar-spen"></div>
+                  </div>
+                  <div class="jan">
+                    <p>Mar</p>
+                  </div>
+                </div>
+                <div class="janu">
+                  <div class="es">
+                    <div class="earn" id="apr-earn"></div>
+                    <div class="spen" id="apr-spen"></div>
+                  </div>
+                  <div class="jan">
+                    <p>Apr</p>
+                  </div>
+                </div>
+                <div class="janu">
+                  <div class="es">
+                    <div class="earn" id="may-earn"></div>
+                    <div class="spen" id="may-spen"></div>
+                  </div>
+                  <div class="jan">
+                    <p>May</p>
+                  </div>
+                </div>
+                <div class="janu">
+                  <div class="es">
+                    <div class="earn" id="jun-earn"></div>
+                    <div class="spen" id="jun-spen"></div>
+                  </div>
+                  <div class="jan">
+                    <p>Jun</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="total-savings">
+        <div class="top-total">
+          <p>Total Savings</p>
+          <i class='bx bx-dots-horizontal-rounded'></i>
+        </div>
+        <div class="money">
+          <h2>₹1,33,955.81</h2>
+          <div class="bottom-money">
+            <p id="one">+ ₹24,759.96</p>
+            <p>than last month</p>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="savings">
+          <div class="top-savings">
+            <div class="item">
+              <p>Laptop</p>
+            </div>
+            <div class="right-amount">
+              <p id="up">₹64,500 </p>
+              <p id="down">/₹76,499</p>
+            </div>
+          </div>
+          <div class="bar">
+            <div class="filled-bar"></div>
+          </div>
+        </div>
+        <div class="savings">
+          <div class="top-savings">
+            <div class="item">
+              <p>Bike</p>
+            </div>
+            <div class="right-amount">
+              <p id="up">₹90,000</p>
+              <p>/₹2,40,000</p>
+            </div>
+          </div>
+          <div class="bar">
+            <div class="filled-bar2"></div>
+          </div>
+        </div>
+        <div class="savings">
+          <div class="top-savings">
+            <div class="item">
+              <p>Home</p>
+            </div>
+            <div class="right-amount">
+              <p id="up">₹64,50,000</p>
+              <p>/₹1,75,52,000</p>
+            </div>
+          </div>
+          <div class="bar">
+            <div class="filled-bar3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="trans">
+      <div class="trans-top">
+        <div class="trans-top-left">
+          <h5>Transaction History</h5>
+        </div>
+        <div class="trans-top-right">
+          <div class="search">
+            <i class='bx bx-search'></i>
+            <input type="text" id="search" placeholder="Search transactions">
+          </div>
+          <div class="set">
+            <i class='bx bx-menu'></i>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <!-- <div class="trans-main">
+        <div class="trans-data">
+          <div class="Name">
+            <div class="top">
+              <a href="#">Name</a>
+            </div>
+            <div class="bottom" id="transcon">
+              <div class="nam">
+                <div class="photo" id="onee">H</div>
+                <p>Harshhita</p>
+              </div>
+              <div class="nam">
+                <div class="photo" id="two">S</div>
+                <p>Saketh</p>
+              </div>
+              <div class="nam">
+                <div class="photo" id="three">N</div>
+                <p>Namitha</p>
+              </div>
+              <div class="nam">
+                <div class="photo" id="four">A</div>
+                <p>Ashwanth</p>
+              </div>
+              <div class="nam">
+                <div class="photo" id="five">S</div>
+                <p>Shivaram</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="Date">
+            <div class="top">
+              <a href="#">Date</a>
+            </div>
+            <div class="bottom">
+              <p>10 Nov 2024, 08:00 AM</p>
+              <p>05 Nov 2024, 02:00 PM</p>
+              <p>29 Oct 2024, 07:30 PM</p>
+              <p>15 Oct 2024, 08:00 PM</p>
+              <p>24 Sep 2024, 06:45 PM</p>
+            </div>
+          </div>
+
+          <div class="Type">
+            <div class="top">
+              <a href="#">Type</a>
+            </div>
+            <div class="bottom">
+              <p>Witdrawal</p>
+              <p>Transfer</p>
+              <p>Business</p>
+              <p>Advertising</p>
+              <p>Witdrawal</p>
+            </div>
+          </div>
+
+          <div class="Amount">
+            <div class="top">
+              <a href="#">Amount</a>
+            </div>
+            <div class="bottom">
+              <p>₹15,000</p>
+              <p>₹5,000</p>
+              <p>₹50,000</p>
+              <p>₹24,000</p>
+              <p>₹10,000</p>
+            </div>
+          </div>
+
+          <div class="Status">
+            <div class="top">
+              <a href="#">Status</a>
+            </div>
+            <div class="bottom">
+              <p id="pen">Pending</p>
+              <p id="fai">Failed</p>
+              <p id="suc">Success</p>
+              <p id="suc">Success</p>
+              <p id="fai">Failed</p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="trans-main">
+        <div class="trans-data">
+          <div class="Name">
+            <div class="top">
+              <a href="#">Name</a>
+            </div>
+            <div class="bottom" id="transcon">
+              <!-- <div class="nam">
+                <div class="photo" id="onee">H</div>
+                <p>Harshhita</p>
+              </div>
+              <div class="nam">
+                <div class="photo" id="two">S</div>
+                <p>Saketh</p>
+              </div>
+              <div class="nam">
+                <div class="photo" id="three">N</div>
+                <p>Namitha</p>
+              </div>
+              <div class="nam">
+                <div class="photo" id="four">A</div>
+                <p>Ashwanth</p>
+              </div>
+              <div class="nam">
+                <div class="photo" id="five">S</div>
+                <p>Shivaram</p>
+              </div> -->
+
+            </div>
+          </div>
+
+          <div class="Date">
+            <div class="top">
+              <a href="#">Date</a>
+            </div>
+            <div class="bottom" id="datecon">
+              <!-- <p>10 Nov 2024, 08:00 AM</p>
+              <p>05 Nov 2024, 02:00 PM</p>
+              <p>29 Oct 2024, 07:30 PM</p>
+              <p>15 Oct 2024, 08:00 PM</p>
+              <p>24 Sep 2024, 06:45 PM</p> -->
+            </div>
+          </div>
+
+          <div class="Type">
+            <div class="top">
+              <a href="#">Type</a>
+            </div>
+            <div class="bottom" id="typecon">
+              <!-- <p>Witdrawal</p>
+              <p>Transfer</p>
+              <p>Business</p>
+              <p>Advertising</p>
+              <p>Witdrawal</p> -->
+            </div>
+          </div>
+
+          <div class="Amount">
+            <div class="top">
+              <a href="#">Amount</a>
+            </div>
+            <div class="bottom" id="amtcon">
+              <!-- <p>₹15,000</p>
+              <p>₹5,000</p>
+              <p>₹50,000</p>
+              <p>₹24,000</p>
+              <p>₹10,000</p> -->
+            </div>
+          </div>
+
+          <div class="Status">
+            <div class="top">
+              <a href="#">Status</a>
+            </div>
+            <div class="bottom" id="statuscon">
+              <!-- <p id="pen">Pending</p>
+              <p id="fai">Failed</p>
+              <p id="suc">Success</p>
+              <p id="suc">Success</p>
+              <p id="fai">Failed</p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script>
+
+    const HandlePayment = async () => {
+
+      const name = document.getElementById("name").value;
+      const id = document.getElementById('id').value;
+      const amount = document.getElementById('amount').value;
+      const type = document.getElementById('type').value;
+
+      await fetch(`http://localhost:8000/handletransaction`, {
+        method: "POST",
+        body: JSON.stringify({ id, amount, type, name }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(async resp => {
+        await resp.json().then(data=>{
+          alert(data.success);
+          console.log(data);
+          if(data.success){
+            alert('payment successs !');
+          }else{
+            alert("payment failed !")
+          }
+        })
+      }).catch(err => {
+        console.log(err);
+      })
+
+    }
+
+    const getData = async () => {
+
+      const transcon = document.getElementById('transcon');
+      const datecon = document.getElementById('datecon');
+      const amtcon = document.getElementById('amtcon');
+      const typecon = document.getElementById('typecon');
+      const statuscon = document.getElementById('statuscon')
+
+      await fetch(`http://localhost:8000/getdata`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(async resp => {
+
+        await resp.json().then(data => {
+
+          const newData = data;
+
+          newData.forEach(data => {
+
+            const wrapp = document.createElement('div');
+            wrapp.classList.add('nam');
+            wrapp.innerHTML = ` <div class="photo bg-green-400" id="">${data.name.toString()[0]}</div>
+                <p>${data.name}</p>`
+
+            const date = document.createElement('p');
+            date.innerText = data.date;
+
+            const type = document.createElement('p');
+            type.innerText = data.type;
+
+            const amount = document.createElement('p');
+            amount.innerText = `₹${data.amount} /-`;
+
+            const status = document.createElement('p');
+            status.innerText = data.status;
+            status.style.color = data.status === "Success" ? "green" : data.status === "Pending" ? "orange" : data.status === "Failed" ? "red" : '' 
+
+            datecon.appendChild(date);
+            amtcon.appendChild(amount);
+            typecon.appendChild(type);
+            statuscon.appendChild(status);
+
+            transcon.appendChild(wrapp);
+          })
+
+        })
+      }).catch(err => {
+        console.log(err);
+      })
+    }
+
+    getData();
+
+  </script>
+</body>
+
+</html>

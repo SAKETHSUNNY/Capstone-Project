@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="Dashborad.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="Logo">
+            <a href="Dashboard.html"><span>F</span>insa<span>V</span></a>
+        </div>
+        <h1 class="font-bold text-3xl pl-10">Login</h1>
+        <p class="pl-10 mt-2">login here using your email and password</p>
+        <div class="flex flex-col pl-10 gap-4 mt-7">
+            <input type="text" placeholder="Enter Username" class="p-2 border rounded-xl" id="username">
+            <input type="password" placeholder="Enter Password" class="p-2 border rounded-xl" id="password">
+            <button class="w-full bg-[rgb(218,165,32)] rounded-xl p-2 text-white mx-auto hover:bg-[rgb(218,155,32)]" onclick="Login()">Login</button>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    const username = document.getElementById('username');
+    const password = document.getElementById('password');
+
+    const Login = () =>{
+        if(username.value === "admin" && password.value === "admin"){
+            localStorage.setItem("FIN_LOG_TK",JSON.stringify(true));
+            window.location.href = "/dashboard.html";
+        }else{
+            alert("invalid password !");
+        }
+    }
+
+
+</script>

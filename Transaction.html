@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinsaV</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="Transaction.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+  <div class="left-menu">
+    <div class="Logo">
+      <a href="Dashboard.html"><span>F</span>insa<span>V</span></a>
+    </div>
+
+    <div class="top-menu">
+      <div class="option1" id="dashboard">
+        <i class='bx bxs-dashboard'></i>
+        <a href="Dashboard.html">Dashboard</a>
+      </div>
+      <div class="option1">
+        <i class='bx bxs-credit-card'></i>
+        <a href="Cards.html">Cards</a>
+      </div>
+      <div class="option1" id="transaction">
+        <i class='bx bx-transfer'></i>
+        <a href="Transaction.html">Transactions</a>
+      </div>
+      <div class="option1">
+        <i class='bx bxs-notification'></i>
+        <a href="Investment.html">Investments</a>
+      </div>
+      <div class="option1">
+        <i class='bx bxs-check-shield'></i>
+        <a href="Insurance.html">Insurance</a>
+      </div>
+      <div class="option1">
+        <i class='bx bxs-cog'></i>
+        <a href="Setting.html">settings</a>
+      </div>
+    </div>
+
+    <div class="bottom-menu">
+      <div class="option2">
+        <i class='bx bx-question-mark'></i>
+        <a href="#">Help</a>
+      </div>
+      <div class="option2">
+        <i class='bx bx-log-out'></i>
+        <a href="#" id="logout">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <!---- Transaction ---->
+
+  <div class="main">
+    <div class="Transaction">
+      <h2 class="text-3xl font-bold">Transactions</h2>
+    </div>
+    <div class="make_trans px-10 mt-2">
+      <h1>Make new Transaction</h1>
+      <div class="flex flex-row items-center justify-evenly gap-5">
+        <input type="text" placeholder="Enter UPI ID / ACC NO" class="p-2 mt-2 border rounded-lg w-full" id="id">
+        <input type="number" placeholder="Amount" class="p-2 mt-2 border rounded-lg w-full" id="amount">
+      </div>
+      <div class="mt-3">
+        <select name="" id="type" class="p-2 border rounded-lg w-full">
+          <option value="default">Type</option>
+          <option value="Withdrawl">Withdrawl</option>
+          <option value="Transfer">Transfer</option>
+          <option value="Business">Business</option>
+          <option value="Advertising">Advertising</option>
+        </select>
+        <input type="text" placeholder="Name" class="p-2 mt-2 border rounded-lg w-full" id="name">
+        <button class="p-2 rounded-lg bg-green-600 text-white w-full mt-3 hover:bg-green-500"
+          onclick="HandlePayment()">Process Payment</button>
+      </div>
+    </div>
+    <div class="trans">
+      <div class="trans-top">
+        <div class="trans-top-left">
+          <h5 class="font-bold">Transaction History</h5>
+        </div>
+        <div class="trans-top-right">
+          <div class="search">
+            <i class='bx bx-search'></i>
+            <input type="text" id="search" placeholder="Search transactions">
+          </div>
+          <div class="set">
+            <i class='bx bx-menu'></i>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="trans-main">
+        <div class="trans-data">
+          <div class="Name">
+            <div class="top">
+              <a href="#">Name</a>
+            </div>
+            <div class="bottom" id="transcon">
+              <!-- <div class="nam">
+                <div class="photo" id="onee">H</div>
+                <p>Harshhita</p>
+              </div>
+              <div class="nam">
+                <div class="photo" id="two">S</div>
+                <p>Saketh</p>
+              </div>
+              <div class="nam">
+                <div class="photo" id="three">N</div>
+                <p>Namitha</p>
+              </div>
+              <div class="nam">
+                <div class="photo" id="four">A</div>
+                <p>Ashwanth</p>
+              </div>
+              <div class="nam">
+                <div class="photo" id="five">S</div>
+                <p>Shivaram</p>
+              </div> -->
+
+            </div>
+          </div>
+
+          <div class="Date">
+            <div class="top">
+              <a href="#">Date</a>
+            </div>
+            <div class="bottom" id="datecon">
+              <!-- <p>10 Nov 2024, 08:00 AM</p>
+              <p>05 Nov 2024, 02:00 PM</p>
+              <p>29 Oct 2024, 07:30 PM</p>
+              <p>15 Oct 2024, 08:00 PM</p>
+              <p>24 Sep 2024, 06:45 PM</p> -->
+            </div>
+          </div>
+
+          <div class="Type">
+            <div class="top">
+              <a href="#">Type</a>
+            </div>
+            <div class="bottom" id="typecon">
+              <!-- <p>Witdrawal</p>
+              <p>Transfer</p>
+              <p>Business</p>
+              <p>Advertising</p>
+              <p>Witdrawal</p> -->
+            </div>
+          </div>
+
+          <div class="Amount">
+            <div class="top">
+              <a href="#">Amount</a>
+            </div>
+            <div class="bottom" id="amtcon">
+              <!-- <p>₹15,000</p>
+              <p>₹5,000</p>
+              <p>₹50,000</p>
+              <p>₹24,000</p>
+              <p>₹10,000</p> -->
+            </div>
+          </div>
+
+          <div class="Status">
+            <div class="top">
+              <a href="#">Status</a>
+            </div>
+            <div class="bottom" id="statuscon">
+              <!-- <p id="pen">Pending</p>
+              <p id="fai">Failed</p>
+              <p id="suc">Success</p>
+              <p id="suc">Success</p>
+              <p id="fai">Failed</p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="peoples">
+      <div class="top-name">
+        <h5 class="font-bold">People</h5>
+      </div>
+
+      <hr>
+
+      <div class="people-data">
+        <div class="people">
+          <div class="profile">
+            <img src="assets/img1.jpg">
+            <i class='bx bx-plus'></i>
+          </div>
+          <p>John </p>
+        </div>
+        <div class="people">
+          <div class="profile">
+            <img src="assets/img2.jpg">
+            <i class='bx bx-plus'></i>
+          </div>
+          <p>Michel</p>
+        </div>
+        <div class="people">
+          <div class="profile">
+            <img src="assets/img3.jpg">
+            <i class='bx bx-plus'></i>
+          </div>
+          <p>Oliver</p>
+        </div>
+        <div class="people">
+          <div class="profile">
+            <img src="assets/img4.jpg">
+            <i class='bx bx-plus'></i>
+          </div>
+          <p>Lucas</p>
+        </div>
+        <div class="people">
+          <div class="profile">
+            <img src="assets/img5.jpg">
+            <i class='bx bx-plus'></i>
+          </div>
+          <p>Henry</p>
+        </div>
+        <div class="people">
+          <div class="profile">
+            <img src="assets/img6.jpg">
+            <i class='bx bx-plus'></i>
+          </div>
+          <p>James</p>
+        </div>
+        <div class="people">
+          <div class="profile">
+            <img src="assets/img7.jpg">
+            <i class='bx bx-plus'></i>
+          </div>
+          <p>William</p>
+        </div>
+        <div class="people">
+          <div class="more">
+            <i class='bx bx-chevron-right'></i>
+          </div>
+          <p>More</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <script>
+
+    const HandlePayment = async () => {
+
+      const name = document.getElementById("name").value;
+      const id = document.getElementById('id').value;
+      const amount = document.getElementById('amount').value;
+      const type = document.getElementById('type').value;
+
+      await fetch(`http://localhost:8000/handletransaction`, {
+        method: "POST",
+        body: JSON.stringify({ id, amount, type, name }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(async resp => {
+        console.log(resp);
+        await resp.json().then(data=>{
+          if(data.success){
+            alert("Payment Successs !");
+          }else{
+            alert("Payment failure !");
+          }
+        }).catch(err=>{
+          console.log(err);
+        })
+      }).catch(err => {
+        console.log(err);
+      })
+
+    }
+
+    const getData = async () => {
+
+      const transcon = document.getElementById('transcon');
+      const datecon = document.getElementById('datecon');
+      const amtcon = document.getElementById('amtcon');
+      const typecon = document.getElementById('typecon');
+      const statuscon = document.getElementById('statuscon');
+
+      await fetch(`http://localhost:8000/getdata`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(async resp => {
+
+        await resp.json().then(data => {
+
+          const newData = data;
+
+          newData.forEach(data => {
+
+            const wrapp = document.createElement('div');
+            wrapp.classList.add('nam');
+            wrapp.innerHTML = ` <div class="photo bg-black" id="">${data.name.toString()[0]}</div>
+                <p>${data.name}</p>`
+
+            const date = document.createElement('p');
+            date.innerText = data.date;
+
+            const type = document.createElement('p');
+            type.innerText = data.type;
+
+            const amount = document.createElement('p');
+            amount.innerText = `₹${data.amount} /-`;
+
+            const status = document.createElement('p');
+            status.innerText = data.status;
+            status.style.color = data.status === "Success" ? "green" : data.status === "Pending" ? "orange" : data.status === "Failed" ? "red" : '' 
+
+            datecon.appendChild(date);
+            amtcon.appendChild(amount);
+            typecon.appendChild(type);
+            statuscon.appendChild(status);
+
+            transcon.appendChild(wrapp);
+
+          })
+
+        })
+      }).catch(err => {
+        console.log(err);
+      })
+    }
+
+    getData();
+
+  </script>
+</body>
+
+</html>
